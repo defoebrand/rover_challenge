@@ -9,6 +9,7 @@ AllCops:
     - "bin/*"
     - "Guardfile"
     - "node_modules/**/*"
+    - "spec/lib/mock_data/*"
 
   DisplayCopNames: true
 
