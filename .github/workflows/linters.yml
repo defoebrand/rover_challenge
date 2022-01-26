@@ -16,7 +16,7 @@ jobs:
           ruby-version: 2.7.x
       - name: Setup Rubocop
         run: |
-          gem install --no-document rubocop:'~> 1.25' rubocop-performance:'~> 0.0.1' rubocop-rails:'~> 2.13' rubocop-rspec:'~> 2.8' # https://docs.rubocop.org/en/stable/installation/
+          gem install --no-document rubocop rubocop-performance rubocop-rails rubocop-rspec # https://docs.rubocop.org/en/stable/installation/
           [ -f .rubocop.yml ]
       - name: Rubocop Report
         run: rubocop --color
