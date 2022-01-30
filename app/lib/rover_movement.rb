@@ -24,7 +24,7 @@ module RoverMovement
     def process_instructions(orientation, instructions)
       position = orientation.dup
       instructions.each_char do |instruction|
-        position = adjust_rover(position, instruction.upcase)
+        adjust_rover(position, instruction.upcase)
       end
       position
     end
@@ -40,7 +40,6 @@ module RoverMovement
       when 'M'
         move_forward(position)
       end
-      position
     end
 
     def move_forward(position)

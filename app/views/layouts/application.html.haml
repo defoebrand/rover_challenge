@@ -1,0 +1,21 @@
+!!! 5
+%html
+  %head
+    %title RoverChallenge
+    %meta{name: "viewport", content: "width=device-width,initial-scale=1"}
+    = csrf_meta_tags
+    = csp_meta_tag
+    
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    - flash.each do |type, msg|
+      .alert.alert-danger.position-absolute.text-center{style: 'right: 0px'}
+        = msg
+        
+    .container.centered_flex.mt-3
+      %h1.text-center= 'Welcome to the Nasa Rover Challenge!'
+      
+    .container.column_flex.my-3.pt-4.border
+      = yield
