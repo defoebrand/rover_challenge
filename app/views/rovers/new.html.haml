@@ -1,0 +1,19 @@
+= render 'shared/rover_grid', controller: 'rover'
+
+= form_for :rover_params, url: calculate_path, html: { class: 'container centered_flex column_flex mt-5', 'data-controller': 'form' } do |f|
+  
+  %p#errorMessage.hide_until_active{ 'data-form-target': "error" }
+  
+  %label.axis_label
+    X:
+    .m-2= number_field :rover_params, 'xCoord', in: 0...6, placeholder: 'Starting X coordinate', 'data-action': 'input->form#move_by_form', 'data-form-target': 'xCoord'
+
+  %label.axis_label
+    Y: 
+    .m-2= number_field :rover_params, 'yCoord', in: 0...6, placeholder: 'Starting Y coordinate', 'data-action': 'input->form#move_by_form', 'data-form-target': 'yCoord'
+
+  .m-2= select :rover_params, 'direction', [["North", "N"], ["East", "E"], ["South", "S"], ["West", "W"]], { include_blank: false, prompt: 'Starting Direction - East' }, { 'data-action': 'change->form#rotate', 'data-form-target': 'direction' }
+
+  .m-2= text_field :rover_params, 'instructions', {placeholder: 'Instructions', 'data-form-target': 'instructions', 'data-action': 'input->form#sanitize_input'}
+    
+  = submit_tag 'Submit',  class: 'm-3', 'data-action': 'click->form#submit'

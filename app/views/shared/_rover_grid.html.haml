@@ -1,0 +1,16 @@
+#rover_grid{ 
+  'data-controller': "#{controller}", 
+  'data-action': "click->#{controller}#move_rover", 
+  "data-#{controller}-target": 'roverGrid' 
+  }
+  
+  %img#rover_image.east{ 
+    src: 'small_rover.png', 
+    'data-action': "click->#{controller}#rotate", 
+    "data-#{controller}-target": 'roverImage' 
+    }
+    
+  - 25.times do
+    .square
+
+      
