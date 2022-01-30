@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus';
 
-export default class extends Controller {
+class ResultController extends Controller {
   static values = { x: Number, y: Number, direction: String }
 
   currentPosition(){
@@ -34,29 +34,31 @@ export default class extends Controller {
     rover.style.top = (position.grid.bottom - (rover.naturalHeight / 2) - (this.yValue * square.height)) + 'px';
     rover.style.left = (position.grid.left - (rover.naturalWidth / 2) + (this.xValue * square.width)) + 'px';
 
-    this.rotate(this.directionValue, rover);
+    rover.classList.remove('east');
+
+    switch (this.directionValue) {
+      case 'N':
+        rover.classList.add('north');
+        break;
+      case 'E':
+        rover.classList.add('east');
+        break;
+      case 'S':
+        rover.classList.add('south');
+        break;
+      case 'W':
+        rover.classList.add('west');
+        break;
+      }
   }
 
   move_rover(e){
     e.preventDefault();
   }
 
-  rotate(direction, rover_image){
-    rover_image.classList.remove('east');
-
-    switch (direction) {
-      case 'N':
-        rover_image.classList.add('north');
-        break;
-      case 'E':
-        rover_image.classList.add('east');
-        break;
-      case 'S':
-        rover_image.classList.add('south');
-        break;
-      case 'W':
-        rover_image.classList.add('west');
-        break;
-      }
+  rotate(e){
+    e.preventDefault();
   }
- }
+}
+
+export default ResultController;

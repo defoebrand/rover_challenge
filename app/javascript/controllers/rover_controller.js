@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus';
 
-export default class extends Controller {
+class RoverController extends Controller {
   static targets = [ 'roverGrid', 'roverImage' ]
 
   currentPosition(){
@@ -60,7 +60,7 @@ export default class extends Controller {
   }
 
   rotate(e){
-    const rover_image = e.currentTarge;
+    const rover_image = e.currentTarget;
     const direction = rover_image.classList[0];
     const directionInput = document.getElementById('rover_params_direction');
 
@@ -85,6 +85,8 @@ export default class extends Controller {
         rover_image.classList.add('north');
         directionInput.value = 'N';
         break;
-      }
     }
- }
+  }
+}
+
+ export default RoverController;
