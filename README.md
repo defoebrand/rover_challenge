@@ -44,7 +44,7 @@ Upon loading the site, a 5 x 5 grid is displayed, with an image of a rover in th
 
 
 ## Live Demo
-#### Deployed on: <a href="https://https://rover-challenge.herokuapp.com/">![Heroku](https://pyheroku-badge.herokuapp.com/?app=rover-challenge&style=flat)</a>
+#### Deployed on: <a href="https://rover-challenge.herokuapp.com/">![Heroku](https://pyheroku-badge.herokuapp.com/?app=rover-challenge&style=flat)</a>
 
 
 ## Built With
