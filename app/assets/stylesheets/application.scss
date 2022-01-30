@@ -13,83 +13,83 @@
  *= require_tree .
  *= require_self
  */
- @import 'bootstrap';
+@import 'bootstrap';
 
- #rover_grid {
-   border: 1px solid black;
-   cursor: pointer;
-   height: 50vw;
-   max-height: 45vh;
-   width: 50vw;
-   display: grid;
-   grid-template-areas: 
-    "square square square square square"
-    "square square square square square"
-    "square square square square square"
-    "square square square square square"
-    "square square square square square";
-    
-    .square {
-      grid-area: 'square';
-      border: 1px solid black;
-      display: block;
-    }
- }
- 
- #rover_image {
-   position: absolute;
- }
- 
- #rover_params_direction,
- #rover_params_yCoord,
- #rover_params_xCoord,
- #rover_params_instructions {
-   width: 250px;
-   background-color: white;
- }
- 
- .north {
-   transform: rotate(-90deg);
- }
- 
- .east {
-   transform: rotate(0deg);
- }
- 
- .south {
-   transform: rotate(90deg);
- }
- 
- .west {
-   transform: scaleX(-1);
- }
- 
- .centered_flex {
-   display: flex;
-   justify-content: center;
- }
- 
- .column_flex {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
- }
- 
- .axis_label {
-   display: flex;
-   align-items: center;
-   position: relative;
-   left: -5px;
- }
- 
- .hide_until_active {
-   display: none;
- }
- 
- .error_message_style {
-   text-align: center;
-   font-weight: 700;
-   color: red;
-   margin-top: 15px;
-   margin-bottom: 0;
- }
+#rover_grid {
+  border: 1px solid black;
+  cursor: pointer;
+  height: 50vw;
+  max-height: 45vh;
+  width: 50vw;
+  display: grid;
+  grid-template-areas:
+    'square square square square square'
+    'square square square square square'
+    'square square square square square'
+    'square square square square square'
+    'square square square square square';
+
+  .square {
+    grid-area: 'square';
+    border: 1px solid black;
+    display: block;
+  }
+}
+
+#rover_image {
+  position: absolute;
+}
+
+#rover_params_direction,
+#rover_params_yCoord,
+#rover_params_xCoord,
+#rover_params_instructions {
+  width: 250px;
+  background-color: white;
+}
+
+.north {
+  transform: rotate(-90deg);
+}
+
+.east {
+  transform: rotate(0deg);
+}
+
+.south {
+  transform: rotate(90deg);
+}
+
+.west {
+  transform: scaleX(-1);
+}
+
+.centered_flex {
+  display: flex;
+  justify-content: center;
+}
+
+.column_flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.axis_label {
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: -5px;
+}
+
+.hide_until_active {
+  display: none;
+}
+
+.error_message_style {
+  text-align: center;
+  font-weight: 700;
+  color: red;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
