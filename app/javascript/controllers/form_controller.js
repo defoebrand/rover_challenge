@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus';
 
-export default class extends Controller {
+class FormController extends Controller {
   static targets = [ 'error', 'xCoord', 'yCoord', 'direction', 'instructions' ]
 
   get xCoord() {
@@ -96,3 +96,5 @@ export default class extends Controller {
     }
   }
 }
+
+export default FormController;
