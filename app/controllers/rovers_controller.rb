@@ -1,22 +1,24 @@
 class RoversController < ApplicationController
   def show
     @rover = RoverCoordinate.find(params[:rover])
-    @display_results = @rover.final_orientation
   end
 
   def new
     @rover_movement = RoverCoordinate.new
-    # @rover_coords = RoverMovement.process_instructions([3, 3, 'E'], 'MMRMMRMRRM')
-    # @rover_coords2 = RoverMovement.process_instructions([1, 2, 'N'], 'LMLMLMLMM')
   end
 
   def create
-    @rover_movement = RoverCoordinate.create(
+    @rover_movement = RoverCoordinate.new(
       initial_orientation: [rover_params[:xCoord].to_i, rover_params[:yCoord].to_i, rover_params[:direction]],
       instructions: rover_params[:instructions]
     )
 
-    redirect_to controller: 'rovers', action: 'show', rover: @rover_movement.id
+    if @rover_movement.save
+      redirect_to controller: 'rovers', action: 'show', rover: @rover_movement.id
+    else
+      flash.now[:notice] = 'Something went wrong. Please try running your simulation again!'
+      render :new
+    end
   end
 
   private
