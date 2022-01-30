@@ -4,12 +4,8 @@
   "data-#{controller}-target": 'roverGrid' 
   }
   
-  %img#rover_image.east{ 
-    src: 'small_rover.png', 
-    'data-action': "click->#{controller}#rotate", 
-    "data-#{controller}-target": 'roverImage' 
-    }
-    
+  = image_tag 'small_rover.png', { class: 'east', id: 'rover_image', alt: 'rover image', 'data-action': "click->#{controller}#rotate", "data-#{controller}-target": 'roverImage'  }
+  
   - 25.times do
     .square
 
