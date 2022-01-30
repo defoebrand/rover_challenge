@@ -3,8 +3,8 @@
   'data-action': "click->#{controller}#move_rover", 
   "data-#{controller}-target": 'roverGrid' 
   }
-  
-  = image_tag 'small_rover.png', { class: 'east', id: 'rover_image', alt: 'rover image', 'data-action': "click->#{controller}#rotate", "data-#{controller}-target": 'roverImage'  }
+
+  = image_tag 'small_rover.png', { class: 'east', id: 'rover_image', 'data-action': "click->#{controller}#rotate", "data-#{controller}-target": 'roverImage'  }
   
   - 25.times do
     .square

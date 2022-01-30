@@ -20,3 +20,31 @@ jobs:
           [ -f .rubocop.yml ]
       - name: Rubocop Report
         run: rubocop --color
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Setup ESLint
+        run: |
+          npm install --save-dev eslint@7.12.x eslint-plugin-import@2.22.x eslint-config-standard@16.0.x babel-eslint@10.1.x
+          [ -f .eslintrc.json ]
+      - name: ESLint Report
+        run: npx eslint app/javascript
+  stylelint:
+    name: Stylelint
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Setup Stylelint
+        run: |
+          npm install --save-dev stylelint@14.3.x stylelint-config-standard-scss@3.0.x stylelint-csstree-validator
+          [ -f .stylelintrc.json ]
+      - name: Stylelint Report
+        run: npx stylelint "**/*.scss"

@@ -1,0 +1,9 @@
+{
+  "extends": ["stylelint-config-standard-scss"],
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "string-quotes": "single",
+    "selector-id-pattern": "^([a-zA-Z][a-zA-Z0-9]*)(_[a-zA-Z0-9]+)*$",
+    "selector-class-pattern": "^([a-zA-z][a-zA-z0-9]*)(_[a-zA-z0-9]+)*$"
+  }
+}
