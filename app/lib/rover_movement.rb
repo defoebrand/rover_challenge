@@ -23,6 +23,11 @@ module RoverMovement
   class << self
     def process_instructions(orientation, instructions)
       position = orientation.dup
+      
+      raise ArgumentError.new(
+        'Please input two space delimited numbers from 0-5 and a Cardinal Direction of N, S, E, or W'
+        ) if any_invalid_inputs(position)
+
       instructions.each_char do |instruction|
         adjust_rover(position, instruction.upcase)
       end
@@ -30,6 +35,10 @@ module RoverMovement
     end
 
     private
+    
+    def any_invalid_inputs(input)
+      input[0..1].any? { |val| val < 0 || val > 5 } || !POSITION_DATA.keys.include?(input[2])
+    end
 
     def adjust_rover(position, instruction)
       case instruction
