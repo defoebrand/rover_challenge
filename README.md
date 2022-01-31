@@ -28,7 +28,8 @@ In this project, I was expected to put my best work forward and part of what I b
 -   All calculations are stored for future review 
 
 ###### Coming Features
--   Interactive results to show rover move with each instruction step 
+-   Interactive results to show rover move with each instruction step
+-   Ability to add additional rovers to screen and calculate multiple rover positions concurrently
 -   User accounts to associate personal simulations
 -   Index of all previous results
 -   Rover movement logic extracted into a gem
@@ -44,6 +45,23 @@ In this project, I was expected to put my best work forward and part of what I b
 
 ### To Use The App
 Upon loading the site, a 5 x 5 grid is displayed, with an image of a rover in the bottom left corner facing right. This is position [0, 0, 'E']. Users may input the starting X position, starting Y position, and instructions by using the form ('E' is input by default but may be changed with the select input). Alternatively, users my click the grid position they wish the rover to start on and click the rover itself to rotate its orientation to North, East, South, or West in a clockwise motion. Instructions may only be input through the form, in which only the letters 'L', 'R', or 'M' will be accepted inputs. Starting positions may only be 0 - 5, any input outside this range will not be accepted. Once the form is filled out by either method, press Enter or click 'Submit' at the bottom to find out where your rover may end up!
+
+### To Use Challenge Logic 
+In the root folder of this project, open a rails console with the command `rails c`. Once there, run: `RoverMovement.process_instructions()` using parameters in the following format.   
+
+Argument 1: A two digit array signifying the top-right X and Y position, as so [5, 5]
+Argument 2: An array with two elements, as so: [[1, 3, 'W'], 'LMLMLMLMLMLMRMRMRMRMRMRMRMRMRMMMMMMM']
+ -  Array[0] being an array of two digits and a letter, denoting X position, Y position, and the initial Cardinal direction of Rover 1, as so [1, 3, 'W']
+ -  Array[1] being a string consisting of the letters 'L', 'R', and 'M', denoting instructions to be sent to the rover, as so: 'LMLMLMLMLMLMRMRMRMRMRMRMRMRMRMMMMMMM'
+ 
+Argument 2 may be repeated for as many rovers as should be calculated at a time. For example, to calculate the position of two different rovers in a 10 x 10 grid, the following command could be run.  
+ 
+ `RoverMovement.process_instructions([10, 10], [[1, 2, 'N'], 'LMRMLLMM'], [[3, 5, 'W'], 'RRMMMRMRMRL'])`
+ 
+ This will return an array of arrays, each array being the final positioning of each given rover, in order, as seen in the returned answer:   
+   `[[0, 1, "S"], [5, 4, "W"]]`
+As the given format: [[Array1 X, Array1 Y, Array1 Heading], [Array2 X, Array2 Y, Array2 Heading]]
+
 
 
 ## Live Demo

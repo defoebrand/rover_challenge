@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_125_123_631) do
+ActiveRecord::Schema.define(version: 20_220_131_105_936) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -20,5 +20,6 @@ ActiveRecord::Schema.define(version: 20_220_125_123_631) do
     t.string 'instructions'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.integer 'grid_size', default: [5, 5], array: true
   end
 end
