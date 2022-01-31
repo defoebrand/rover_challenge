@@ -45,7 +45,7 @@ describe('ResultController', () => {
     it('displays error if inputs are absent upon form submission', () => {
       const button = document.querySelector('input[type=\'submit\']');
       button.click();
-      const error_message = document.querySelector('.error_message_style')
+      const error_message = document.querySelector('.error_message_style');
 
       expect(error_message).toBePresent;
     });

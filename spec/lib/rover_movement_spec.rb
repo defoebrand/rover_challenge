@@ -45,19 +45,22 @@ RSpec.describe RoverMovement do
 
       expect(new_position).to eq([0, 5, 'W'])
     end
-    
-    
+
     describe 'raises Exception' do
       it 'if improper axis positions inputs are given' do
-        expect { 
-          described_class.process_instructions([3, 333, 'E'], 'LMLMRMRRM') 
-        }.to raise_error(ArgumentError, 'Please input two space delimited numbers from 0-5 and a Cardinal Direction of N, S, E, or W')
+        expect do
+          described_class.process_instructions([3, 333, 'E'], 'LMLMRMRRM')
+        end.to raise_error(
+          ArgumentError, 'Please input two space delimited numbers from 0-5 and a Cardinal Direction of N, S, E, or W'
+        )
       end
-      
+
       it 'if an improper heading input is given' do
-        expect { 
-          described_class.process_instructions([3, 3, 'X'], 'LMLMRMRRM') 
-        }.to raise_error(ArgumentError, 'Please input two space delimited numbers from 0-5 and a Cardinal Direction of N, S, E, or W')
+        expect do
+          described_class.process_instructions([3, 3, 'X'], 'LMLMRMRRM')
+        end.to raise_error(
+          ArgumentError, 'Please input two space delimited numbers from 0-5 and a Cardinal Direction of N, S, E, or W'
+        )
       end
     end
   end
