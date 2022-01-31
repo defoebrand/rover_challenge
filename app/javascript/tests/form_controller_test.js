@@ -13,7 +13,6 @@ describe('ResultController', () => {
 
       document.body.innerHTML = `
       <form class="container centered_flex column_flex mt-5" data-controller="form" action="/calculate" accept-charset="UTF-8" method="post">
-        <input type="hidden" name="authenticity_token" value="3itweTUWWxynN7rtkrhZtSbWvhLG-9Cwq01TOEVF7kWLrMCwKgVE-THKjzRpzzx1BAQZ1AmW_9RO2WY7H5ZeSg">
         <p class="hide_until_active" data-form-target="error" id="errorMessage"></p>
         <label class="axis_label">
           X:
@@ -43,10 +42,12 @@ describe('ResultController', () => {
       </form>`;
     });
 
-    it('does not submit form unless all inputs are present', () => {
+    it('displays error if inputs are absent upon form submission', () => {
       const button = document.querySelector('input[type=\'submit\']');
+      button.click();
+      const error_message = document.querySelector('.error_message_style');
 
-      expect(button).toBePresent;
+      expect(error_message).toBePresent;
     });
   });
 });
