@@ -25,11 +25,13 @@ In this project, I was expected to put my best work forward and part of what I b
 -   Rover stays locked to its grid position despite active screen resizing
 -   Rover can not move outside of its 5 x 5 grid
 -   Form inputs respond to changes enacted by interactive grid and vice versa
--   All calculations are stored for future review and visible in the results index
--   Rover movement logic has been extracted into a gem
+-   All calculations are stored for future review 
 
 ###### Coming Features
 -   Interactive results to show rover move with each instruction step 
+-   User accounts to associate personal simulations
+-   Index of all previous results
+-   Rover movement logic extracted into a gem
 
 ###### Known Bugs
 -   Rover screen position is calculated based on grid screen position. Scrolling down and partially obscuring the view of the grid alters this calculation and positions the rover above the expected grid point. Scrolling up and repositioning the rover clears this bug.
@@ -38,6 +40,7 @@ In this project, I was expected to put my best work forward and part of what I b
 ###### TODO
 -   Increase testing of Stimulus controllers
 -   Fix known bugs
+
 
 ### To Use The App
 Upon loading the site, a 5 x 5 grid is displayed, with an image of a rover in the bottom left corner facing right. This is position [0, 0, 'E']. Users may input the starting X position, starting Y position, and instructions by using the form ('E' is input by default but may be changed with the select input). Alternatively, users my click the grid position they wish the rover to start on and click the rover itself to rotate its orientation to North, East, South, or West in a clockwise motion. Instructions may only be input through the form, in which only the letters 'L', 'R', or 'M' will be accepted inputs. Starting positions may only be 0 - 5, any input outside this range will not be accepted. Once the form is filled out by either method, press Enter or click 'Submit' at the bottom to find out where your rover may end up!
@@ -99,11 +102,11 @@ Navigate to `http://localhost:3000/` in a browser of your choice to see the appl
 ### Testing
 ##### Back-End
 This project uses RSpec for testing Rails features.
-> To run tests, open a terminal inside the project's root directory and enter `rspec`
+> To run tests, open a terminal inside the project's root directory and enter `bundle exec rspec`
 
 ##### Front-End
 This project uses Jest for testing Stimulus features.
-> To run tests, open a terminal inside the project's root directory and enter `yarn test`
+> To run tests, open a terminal inside the project's root directory and enter `yarn run test`
 
 ### Linting
 ##### Ruby

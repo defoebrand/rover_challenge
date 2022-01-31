@@ -1,4 +1,4 @@
-.mb-3= link_to 'Run New Simulation', root_path
+.mb-3.text-center= link_to 'Run New Simulation', root_path
 
 = render 'shared/rover_grid', controller: 'result'
 
@@ -9,7 +9,7 @@
   'data-result-direction-value': @rover.final_orientation[2] 
   }  
     
-.container.centered_flex.mt-5
+.container.centered_flex.flex-wrap.mt-5
   .mx-3.text-center
     Position X Start:
     %br
@@ -26,10 +26,11 @@
     #{@rover.initial_orientation[2]}
 
 .container.my-3
-  .mx-3.text-center.text-break
-    Instructions Given: '#{@rover.instructions}'
+  .mx-3.centered_flex.flex-wrap.text-center
+    Instructions Given: 
+    .text-break '#{@rover.instructions}'
 
-.container.centered_flex.mb-5
+.container.centered_flex.flex-wrap.mb-5
   .mx-3.text-center
     Position X Final:
     %br
